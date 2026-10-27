@@ -1,6 +1,6 @@
-// Inserire qui i valori del progetto Supabase prima della pubblicazione online.
-// Se lasciati invariati, l'app usa una modalita demo locale sul singolo dispositivo.
+// Configurazione del progetto Supabase.
+// La chiave publishable e' utilizzabile nell'app client; non inserire qui chiavi secret/service_role.
 window.APP_CONFIG = {
-  SUPABASE_URL: 'https://fcuaoarwirgwzfvgdrkq.supabase.co',
+  SUPABASE_URL: 'https://fcuaoarwjrqwzfyqdrkq.supabase.co',
   SUPABASE_ANON_KEY: 'sb_publishable_kauUyrkAuiLhd3-mW3ZRfw_nweAeOGZ'
 };
