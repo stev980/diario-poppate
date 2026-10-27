@@ -14,74 +14,38 @@
     <div><strong>Diario Poppate</strong><small id="connectionStatus">Connessione in verifica…</small></div>
     <button id="installButton" class="secondary hidden">Installa</button>
   </header>
-
   <main>
     <section id="page-insert" class="page active">
       <h1>Inserisci poppata</h1>
       <form id="feedingForm" class="card">
         <input type="hidden" id="recordId">
-        <label>Data e ora
-          <input id="feedingDateTime" type="datetime-local" required>
-        </label>
-        <label>Quantità (ml)
-          <input id="feedingMl" type="number" inputmode="numeric" min="1" max="1000" step="1" placeholder="Es. 70" required>
-        </label>
-        <label>Nota <span class="muted">(facoltativa)</span>
-          <textarea id="feedingNote" maxlength="500" rows="4" placeholder="Annotazioni…"></textarea>
-        </label>
-        <div class="form-actions">
-          <button id="saveButton" type="submit">Inserisci poppata</button>
-          <button id="cancelEditButton" type="button" class="secondary hidden">Annulla modifica</button>
-        </div>
+        <label>Data e ora<input id="feedingDateTime" type="datetime-local" required></label>
+        <label>Quantità (ml)<input id="feedingMl" type="number" inputmode="numeric" min="1" max="1000" step="1" placeholder="Es. 70" required></label>
+        <label>Nota <span class="muted">(facoltativa)</span><textarea id="feedingNote" maxlength="500" rows="4" placeholder="Annotazioni…"></textarea></label>
+        <div class="form-actions"><button id="saveButton" type="submit">Inserisci poppata</button><button id="cancelEditButton" type="button" class="secondary hidden">Annulla modifica</button></div>
       </form>
       <div id="formMessage" class="message" role="status"></div>
     </section>
-
     <section id="page-list" class="page">
       <h1>Elenco poppate</h1>
-      <div class="card filters">
-        <label>Dal <input id="filterFrom" type="date"></label>
-        <label>Al <input id="filterTo" type="date"></label>
-        <div class="filter-actions"><button id="applyFilters">Filtra</button><button id="clearFilters" class="secondary">Azzera</button></div>
-      </div>
-      <div id="feedingList"></div>
-      <button id="loadMore" class="secondary wide hidden">Mostra altre</button>
+      <div class="card filters"><label>Dal <input id="filterFrom" type="date"></label><label>Al <input id="filterTo" type="date"></label><div class="filter-actions"><button id="applyFilters">Filtra</button><button id="clearFilters" class="secondary">Azzera</button></div></div>
+      <div id="feedingList"></div><button id="loadMore" class="secondary wide hidden">Mostra altre</button>
     </section>
-
     <section id="page-summary" class="page">
       <h1>Riepilogo</h1>
-      <div class="card summary-filter">
-        <label>Dal <input id="summaryFrom" type="date"></label>
-        <label>Al <input id="summaryTo" type="date"></label>
-        <button id="applySummary">Aggiorna</button>
-        <button id="last7Days" class="secondary">Ultimi 7 giorni</button>
-      </div>
+      <div class="card summary-filter"><label>Dal <input id="summaryFrom" type="date"></label><label>Al <input id="summaryTo" type="date"></label><button id="applySummary">Aggiorna</button><button id="last7Days" class="secondary">Ultimi 7 giorni</button></div>
       <div id="summaryCards" class="summary-grid"></div>
       <div class="card"><h2>Totale ml per giorno</h2><div class="chart-wrap"><canvas id="dailyChart"></canvas></div></div>
-      <div class="card danger-zone">
-        <h2>Dati e backup</h2>
-        <p id="lastBackup">Ultimo backup: mai</p>
-        <div class="stack-actions">
-          <button id="exportCsv">Esporta CSV</button>
-          <label class="file-button">Importa CSV<input id="importCsv" type="file" accept=".csv,text/csv"></label>
-          <button id="deleteAll" class="danger">Cancella tutto l’archivio</button>
-        </div>
-      </div>
+      <div class="card danger-zone"><h2>Dati e backup</h2><p id="lastBackup">Ultimo backup: mai</p><div class="stack-actions"><button id="exportCsv">Esporta CSV</button><label class="file-button">Importa CSV<input id="importCsv" type="file" accept=".csv,text/csv"></label><button id="deleteAll" class="danger">Cancella tutto l’archivio</button></div></div>
     </section>
   </main>
-
-  <nav class="bottom-nav" aria-label="Navigazione principale">
-    <button data-page="insert" class="active">＋<span>Inserisci</span></button>
-    <button data-page="list">☷<span>Elenco</span></button>
-    <button data-page="summary">⌁<span>Riepilogo</span></button>
-  </nav>
-
+  <nav class="bottom-nav" aria-label="Navigazione principale"><button data-page="insert" class="active">＋<span>Inserisci</span></button><button data-page="list">☷<span>Elenco</span></button><button data-page="summary">⌁<span>Riepilogo</span></button></nav>
   <dialog id="noteDialog"><h2>Nota</h2><p id="noteText"></p><button id="closeNote">Chiudi</button></dialog>
   <dialog id="importDialog"><h2>Importazione CSV</h2><p>Scegli come gestire i dati già presenti.</p><div class="stack-actions"><button data-import-mode="add">Aggiungi e salta duplicati</button><button data-import-mode="replace" class="danger">Sostituisci archivio</button><button id="cancelImport" class="secondary">Annulla</button></div></dialog>
-
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
   <script src="config.js"></script>
   <script src="app.js"></script>
+  <script src="enhancements.js"></script>
 </body>
 </html>
